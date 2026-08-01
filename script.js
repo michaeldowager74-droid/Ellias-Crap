@@ -124,19 +124,27 @@ function displayProducts() {
         card.className = "product-card";
 
 
-        card.innerHTML = `
+card.innerHTML = `
 
-            <img src="${product.Images}" alt="${product.Name}">
+    <img 
+        src="${imageUrl}" 
+        alt="${product.Name}"
+        onerror="this.style.display='none'"
+    >
 
-            <h2>${product.Name}</h2>
+    <h2>${product.Name}</h2>
 
-            <p>${product.Description}</p>
+    <p>${product.Description}</p>
 
-            <button>
-                Add to Bag
-            </button>
+    <p class="category-label">
+        ${product.Category}
+    </p>
 
-        `;
+    <button>
+        Add to Bag
+    </button>
+
+`;
 
 
         productBox.appendChild(card);
@@ -208,6 +216,20 @@ document.getElementById("search").addEventListener("input", function() {
     });
 
 });
+function getImages(id) {
 
+    let images = [];
+
+    for (let i = 1; i <= 5; i++) {
+
+        let image = `images/${id}-${i}.jpg`;
+
+        images.push(image);
+
+    }
+
+    return images;
+
+}
 // Start website
 loadProducts();
