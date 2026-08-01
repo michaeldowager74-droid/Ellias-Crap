@@ -156,9 +156,9 @@ function displayProducts() {
                 ${product.Category}
             </p>
 
-            <button>
-                Add to Bag
-            </button>
+           <button onclick="addToBag('${product.ID}')">
+    Add to Bag
+</button>
 
         `;
 
@@ -179,6 +179,37 @@ document.getElementById("search").addEventListener("input", function() {
 
 });
 
+function addToBag(id) {
+
+    let product = products.find(item => item.ID === id);
+
+    if (!bag.includes(product)) {
+
+        bag.push(product);
+
+    }
+
+    updateBag();
+
+}
+
+
+function removeFromBag(id) {
+
+    bag = bag.filter(item => item.ID !== id);
+
+    updateBag();
+
+}
+
+
+function updateBag() {
+
+    const bagButton = document.querySelector(".bag");
+
+    bagButton.textContent = `🛍️ Bag (${bag.length})`;
+
+}
 
 // Start
 loadProducts();
