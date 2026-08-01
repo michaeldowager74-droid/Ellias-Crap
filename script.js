@@ -211,7 +211,8 @@ document.getElementById("search").addEventListener("input", function() {
 
 
         productBox.appendChild(card);
-
+        
+let imageUrl = `images/${product.ID}-1.jpg`;
 
     });
 
