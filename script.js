@@ -231,5 +231,6 @@ function getImages(id) {
     return images;
 
 }
+
 // Start website
 loadProducts();
