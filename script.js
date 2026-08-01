@@ -210,7 +210,46 @@ function updateBag() {
     bagButton.textContent = `🛍️ Bag (${bag.length})`;
 
 }
+function openBag() {
 
+    const bagWindow = document.getElementById("bag-window");
+    const bagItems = document.getElementById("bag-items");
+
+    bagWindow.style.display = "block";
+
+    bagItems.innerHTML = "";
+
+
+    if (bag.length === 0) {
+
+        bagItems.innerHTML = "<p>Your bag is empty.</p>";
+
+        return;
+
+    }
+
+
+    bag.forEach(product => {
+
+        let item = document.createElement("div");
+
+        item.innerHTML = `
+
+            <p>
+                ${product.Name}
+
+                <button onclick="removeFromBag('${product.ID}')">
+                    Remove
+                </button>
+            </p>
+
+        `;
+
+        bagItems.appendChild(item);
+
+    });
+
+}
 // Start
 loadProducts();
         
