@@ -24,7 +24,7 @@ async function loadProducts() {
 // Parse CSV
 function parseCSV(csv) {
 
-    let lines = csv.split(/\r?\n/);
+    let lines = csv.split(/\r?\n/).filter(line => line.trim() !== "");
 
     let headers = lines[0]
         .match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g)
@@ -38,22 +38,24 @@ function parseCSV(csv) {
             ?.map(v => v.replace(/^"|"$/g, "").trim());
 
 
+        if (!values) return null;
+
+
         let product = {};
 
 
         headers.forEach((header, index) => {
 
-            product[header] = values?.[index] || "";
+            product[header] = values[index] || "";
 
         });
 
 
         return product;
 
-    });
+    }).filter(product => product !== null);
 
 }
-
 
 // Categories
 function displayCategories() {
