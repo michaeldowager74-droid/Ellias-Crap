@@ -3,6 +3,7 @@ const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT_lEmISJ9d03
 let products = [];
 let currentCategory = "All Products";
 let searchTerm = "";
+let bag = [];
 
 
 // Load products
