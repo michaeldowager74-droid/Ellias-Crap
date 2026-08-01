@@ -194,7 +194,6 @@ loadProducts();
 
 
         return product;
-
     });
 
 }
