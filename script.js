@@ -38,7 +38,9 @@ function parseCSV(csv) {
             ?.map(v => v.replace(/^"|"$/g, "").trim());
 
 
-        if (!values) return null;
+        if (!values) {
+            return null;
+        }
 
 
         let product = {};
@@ -53,7 +55,10 @@ function parseCSV(csv) {
 
         return product;
 
+
     }).filter(product => product !== null);
+
+}
 
 }
 
