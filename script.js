@@ -209,5 +209,68 @@ document.getElementById("search").addEventListener("input", function() {
 
 });
 
+// Search products
+document.getElementById("search").addEventListener("input", function() {
+
+    let searchTerm = this.value.toLowerCase();
+
+
+    const productBox = document.getElementById("products");
+
+    productBox.innerHTML = "";
+
+
+    let filtered = products.filter(product => {
+
+        let matchesCategory =
+            currentCategory === "All Products" ||
+            product.Category === currentCategory;
+
+
+        let matchesSearch =
+            product.Name.toLowerCase().includes(searchTerm) ||
+            product.Description.toLowerCase().includes(searchTerm) ||
+            product.Category.toLowerCase().includes(searchTerm);
+
+
+        return (
+            product.Available === "TRUE" &&
+            matchesCategory &&
+            matchesSearch
+        );
+
+    });
+
+
+    filtered.forEach(product => {
+
+
+        let card = document.createElement("div");
+
+        card.className = "product-card";
+
+
+        card.innerHTML = `
+
+            <img src="${product.Images}" alt="${product.Name}">
+
+            <h2>${product.Name}</h2>
+
+            <p>${product.Description}</p>
+
+            <button>
+                Add to Bag
+            </button>
+
+        `;
+
+
+        productBox.appendChild(card);
+
+
+    });
+
+});
+
 // Start website
 loadProducts();
