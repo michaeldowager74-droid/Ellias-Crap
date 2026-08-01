@@ -24,28 +24,37 @@ async function loadProducts() {
 // Convert CSV text into objects
 function parseCSV(csv) {
 
-    const rows = csv.split("\n");
+    const rows = csv.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
 
-    const headers = rows[0].split(",");
+    let lines = csv.split(/\r?\n/);
 
-    return rows.slice(1).map(row => {
+    let headers = lines[0]
+        .match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g)
+        .map(h => h.replace(/^"|"$/g, "").trim());
 
-        const values = row.split(",");
+
+    return lines.slice(1).map(line => {
+
+        let values = line
+            .match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g)
+            ?.map(v => v.replace(/^"|"$/g, "").trim());
+
 
         let product = {};
 
+
         headers.forEach((header, index) => {
 
-            product[header.trim()] = values[index]?.trim();
+            product[header] = values?.[index] || "";
 
         });
+
 
         return product;
 
     });
 
 }
-
 
 // Create category buttons
 function displayCategories() {
