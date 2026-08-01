@@ -60,7 +60,6 @@ function parseCSV(csv) {
 
 }
 
-}
 
 // Categories
 function displayCategories() {
