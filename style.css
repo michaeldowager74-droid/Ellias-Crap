@@ -233,3 +233,45 @@ header {
     background: #d96d9a;
 
 }
+#bag-window {
+
+    display:none;
+
+    position:fixed;
+
+    right:20px;
+
+    top:80px;
+
+    width:300px;
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+
+    z-index:1000;
+
+}
+
+
+#bag-window button {
+
+    margin-top:10px;
+
+    padding:8px 12px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#e88fb3;
+
+    color:white;
+
+    cursor:pointer;
+
+}
