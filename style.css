@@ -273,6 +273,36 @@ header {
 
     color:white;
 
+    .image-dots{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:6px;
+
+    margin:10px 0;
+
+}
+
+.image-dots span{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#d0d0d0;
+
+}
+
+.image-dots .active-dot{
+
+    background:#e88fb3;
+
+}
+
     cursor:pointer;
 
 }
