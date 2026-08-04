@@ -152,7 +152,15 @@ function displayProducts() {
         onclick="nextImage(this)"
         onerror="this.style.display='none'"
     >
-
+            
+<div class="image-dots" id="dots-${product.ID}">
+    <span class="active-dot"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+            
     <h2>${product.Name}</h2>
 
     <p>${product.Description}</p>
