@@ -290,19 +290,38 @@ function nextImage(img) {
 
         img.src = `images/${id}-${next}.jpg`;
         img.dataset.image = next;
-
+updateDots(id, next);
     };
 
     test.onerror = function () {
 
         img.src = `images/${id}-1.jpg`;
         img.dataset.image = 1;
-
+updateDots(id, 1);
     };
 
     test.src = `images/${id}-${next}.jpg`;
 
 }
+
+function updateDots(id, active) {
+
+    const dots = document.querySelectorAll(`#dots-${id} span`);
+
+    dots.forEach((dot, index) => {
+
+        dot.classList.remove("active-dot");
+
+        if (index === active - 1) {
+
+            dot.classList.add("active-dot");
+
+        }
+
+    });
+
+}
+
 // Start
 loadProducts();
         
