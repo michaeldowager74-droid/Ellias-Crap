@@ -173,21 +173,6 @@ card.innerHTML = `
 
 `;
 
-            <h2>${product.Name}</h2>
-
-            <p>${product.Description}</p>
-
-            <p class="category-label">
-                ${product.Category}
-            </p>
-
-           <button onclick="addToBag('${product.ID}')">
-    Add to Bag
-</button>
-
-        `;
-
-
         productBox.appendChild(card);
 
     });
