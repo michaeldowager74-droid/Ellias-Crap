@@ -290,7 +290,7 @@ function nextImage(img) {
 
         img.src = `images/${id}-${next}.jpg`;
         img.dataset.image = next;
-    updateDots(id, next);
+         updateDots(id, next);
         
     };
 
@@ -298,7 +298,7 @@ function nextImage(img) {
 
         img.src = `images/${id}-1.jpg`;
         img.dataset.image = 1;
-    updateDots(id, 1);
+         updateDots(id, 1);
       
     };
 
