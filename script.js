@@ -290,14 +290,16 @@ function nextImage(img) {
 
         img.src = `images/${id}-${next}.jpg`;
         img.dataset.image = next;
-updateDots(id, next);
+    updateDots(id, next);
+        
     };
 
     test.onerror = function () {
 
         img.src = `images/${id}-1.jpg`;
         img.dataset.image = 1;
-updateDots(id, 1);
+    updateDots(id, 1);
+      
     };
 
     test.src = `images/${id}-${next}.jpg`;
