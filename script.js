@@ -142,11 +142,30 @@ function displayProducts() {
 
         card.innerHTML = `
 
-            <img 
-                src="${imageUrl}" 
-                alt="${product.Name}"
-                onerror="this.style.display='none'"
-            >
+            card.innerHTML = `
+
+    <img
+        src="${imageUrl}"
+        alt="${product.Name}"
+        data-id="${product.ID}"
+        data-image="1"
+        onclick="nextImage(this)"
+        onerror="this.style.display='none'"
+    >
+
+    <h2>${product.Name}</h2>
+
+    <p>${product.Description}</p>
+
+    <p class="category-label">
+        ${product.Category}
+    </p>
+
+    <button onclick="addToBag('${product.ID}')">
+        Add to Bag
+    </button>
+
+`;
 
             <h2>${product.Name}</h2>
 
@@ -248,6 +267,32 @@ function openBag() {
         bagItems.appendChild(item);
 
     });
+
+}
+
+function nextImage(img) {
+
+    const id = img.dataset.id;
+    let current = Number(img.dataset.image);
+    let next = current + 1;
+
+    const test = new Image();
+
+    test.onload = function () {
+
+        img.src = `images/${id}-${next}.jpg`;
+        img.dataset.image = next;
+
+    };
+
+    test.onerror = function () {
+
+        img.src = `images/${id}-1.jpg`;
+        img.dataset.image = 1;
+
+    };
+
+    test.src = `images/${id}-${next}.jpg`;
 
 }
 // Start
