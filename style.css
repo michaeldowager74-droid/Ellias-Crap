@@ -168,7 +168,8 @@ header {
     object-fit: contain;
 
     background: #ddd;
-
+    
+    cursor: pointer;
 }
 
 
